@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Data Table</title>
+<meta name="description">
+<script src="jquery.min.js"></script>
+<link href="css/jquery.dataTables.css" rel="stylesheet">
+<script src="js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css"></style>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body id="app" style="margin:20px auto">
+	<div class="container">
+	<div class="row header" style="text-align:center;color:green">
+		<h3>Data Table</h3>
+	</div>
+		<table id="" class="table table-hover">
+			
+			<tr class="success" id="display_input">
+				<form action="/process_post" method="POST">
+					<td id="id" name="id"></td>
+					<td><input type="text" id="name" class="form-control" placeholder="Name" name="name"></td>
+					<td><input type="text" id="place" class="form-control" placeholder="Place" name="place"></td>
+					<td><input type="text" id="animal" class="form-control" placeholder="Anmial" name="animal"></td>
+					<td><input type="text" id="thing" class="form-control" placeholder="Thing" name="thing"></td>
+					<td><button type="submit"  id="insert" class="btn btn-success"><span  class="glyphicon glyphicon-ok"></span></button></td>
+				</form>
+			  </tr>
+		</table>
+
+		<table id="myTable" class="table table-hover" >
+			<thead>
+				<tr style="background:#7D9EC0;">
+					<th id="id" name="id">ID</th>
+    				<th id="name" name="name">Name</th>
+    				<th id="place" name="place">Place</th>
+    				<th id="animal" name="animal">Animal</th>
+    				<th  id="thing" name="thing">Thing</th>
+    				<th>Delete</th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<tr class='display_details'>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="text-align:center;"></td>
+				</tr>
+		
+			</tbody>
+		</table>
+        
+	  </div>
+</body>
+<script>
+
+  $(document).ready(function(){
+      $('#myTable').dataTable({
+    "ajax":{
+    url: 'http://localhost:8080/process_get',
+    dataSrc:""
+    },
+    "sAjaxDataProp":"data",
+    "bSort":true,
+    "bPaginate":true,
+    "table":"#myTable",
+    
+      columns: [
+      { data: "id" },
+          { data: "name" },
+          { data: "place" },
+          { data: "animal" },
+          { data: "thing" },
+      {
+      data:"id",
+      className:"display_details",
+      'render':function(data,type,element)
+        {
+          var id=element.id;
+          return "<a href='http://localhost:8080/delete/"+element.id+"'><button type='button' class='btn btn-danger' ><span class='glyphicon glyphicon-trash'></span></button></a>"
+        }
+      }
+      ]
+    });
+  });
+</script>
+</html>

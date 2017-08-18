@@ -1,0 +1,51 @@
+{
+  "name": "reactjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Express_dataTable.js",
+ 
+ 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "open:src": "webpack-dev-server --open",
+    "start": " babel-node Express_dataTable.js npm-run-all --parallel open:src lint:watch ",
+    "lint:": "node_modules/.bin/esw src",
+    "lint:watch": "node_modules/.bin/esw src --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "browser-router": "^0.2.0",
+    "datatables-bootstrap3-plugin": "^0.5.0",
+    "express": "^4.15.4",
+    "jquery": "^3.2.1",
+    "mysql": "^2.14.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-favicon": "0.0.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.4.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.2.0",
+    "eslint-watch": "^3.1.2",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.30.1",
+    "npm-run-all": "^4.0.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.3",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
